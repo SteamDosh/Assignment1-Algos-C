@@ -17,7 +17,7 @@ void DisplayStack()
 
 	while (!stackList.empty())
 	{
-		cout << stackList.top() << endl;
+		cout << stackList.size()<<"- " << stackList.top() << endl;
 		stackList.pop();
 	}
 }
@@ -40,13 +40,12 @@ void ReadFile(string aFileName)
 		return;
 	}
 	ClearStack();
-	int i = 0;
-	for (string word; fin >> word; i++)
+	for (string word; fin >> word; )
 	{
 		stackList.push(word);
 	}
 
 	fin.close();
 
-	cout << "Recorded " << i << " words into the stack.";
+	cout << "Recorded " << stackList.size() << " words into the stack.";
 }
