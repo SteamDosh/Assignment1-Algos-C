@@ -32,10 +32,10 @@ string top()
 
 void ClearStack()
 {
-		for (int i = 0; i<= stackSize;i++)
-		{
-			pop();
-		}
+	for (int i = 0; i<= stackSize;i++)
+	{
+		pop();
+	}
 }
 
 void ReadFile(string aFileName)
@@ -52,8 +52,8 @@ void ReadFile(string aFileName)
 	{
 		if (!push(word))
 		{
-				cout << "Array is full, breaking." << endl;
-				break;
+			cout << "Array is full, breaking." << endl;
+			break;
 		}
 	}
 
