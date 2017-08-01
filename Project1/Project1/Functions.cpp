@@ -1,6 +1,8 @@
 #include "Functions.h"
 
-stack<string> stackList;
+const int STACKLIMIT = 20;
+string stackList[STACKLIMIT] = {};
+int stackSize = 0;
 
 void SelectFile()
 {
@@ -15,19 +17,25 @@ void DisplayStack()
 {
 	cout << "Reading Stack." << endl;
 
-	while (!stackList.empty())
+	for (int i = 0; i < stackSize ;i++)
 	{
-		cout << stackList.size()<<"- " << stackList.top() << endl;
-		stackList.pop();
+		cout << top << endl;
+		pop();
 	}
 }
 
+string top()
+{
+	return stackList[stackSize];
+}
+
+
 void ClearStack()
 {
-	while (!stackList.empty())
-	{
-		stackList.pop();
-	}
+		for (int i = 0; i<= stackSize;i++)
+		{
+			pop();
+		}
 }
 
 void ReadFile(string aFileName)
@@ -39,13 +47,36 @@ void ReadFile(string aFileName)
 		cerr << "Could not open data file!\n";
 		return;
 	}
-	ClearStack();
-	for (string word; fin >> word; )
+	int i =0;
+	for (string word; fin >> word; i++)
 	{
-		stackList.push(word);
+		if (!push(word))
+		{
+				cout << "Array is full, breaking." << endl;
+				break;
+		}
 	}
 
 	fin.close();
 
-	cout << "Recorded " << stackList.size() << " words into the stack.";
+	cout << "Recorded " << stackSize << " words into the stack.";
+}
+
+void pop()
+{
+	stackList[stackSize] = "";
+	stackSize--;
+}
+
+bool push(string aWord)
+{
+	if (stackSize>=STACKLIMIT) return false;
+
+	stackList[stackSize++] = aWord;
+	return true;
+}
+bool isEmpty()
+{
+	if (stackList[0] == "") return true;
+	else return false;
 }

@@ -35,9 +35,9 @@ char Menu()
 {
 	char Cmd;
 	cout << endl << "*********************************" << endl;
-	cout << "*     Phone Records Database    *" << endl;
+	cout << "*     Stack Database            *" << endl;
 	cout << "*     (r)ead data file          *" << endl;
-	cout << "*     (d)isplay stack            *" << endl;
+	cout << "*     (d)isplay stack           *" << endl;
 	cout << "*     (q)uit                    *" << endl;
 	cout << "*********************************" << endl;
 	cout << "Command: ";
